@@ -39,7 +39,7 @@ Create a project
     mvn archetype:generate \
         -DarchetypeGroupId=jsec \
         -DarchetypeArtifactId=javaee-security-archetype \
-        -DarchetypeVersion=1.0.0-SNAPSHOT \
+        -DarchetypeVersion=1.0.0 \
         -DgroupId=my.groupid \
         -DartifactId=my-artifactId \
         -Dversion=version
@@ -81,7 +81,7 @@ add the javaee-security security-domain. See specific instructions above.
 Start the local wildfly server, e.g., $JBOSS_HOME/bin/standalone.sh
 
 ```bash
-    mvn install wildfly:deploy
+    mvn clean package wildfly:deploy
 ```
 
 Test on the browser
