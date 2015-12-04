@@ -1,0 +1,45 @@
+#set( $symbol_pound = '#' )
+#set( $symbol_dollar = '$' )
+#set( $symbol_escape = '\' )
+<f:view xmlns="http://www.w3.org/1999/xhtml"
+        xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+        xmlns:f="http://xmlns.jcp.org/jsf/core"
+        xmlns:h="http://xmlns.jcp.org/jsf/html"
+        xmlns:p="http://primefaces.org/ui">
+<h:form>
+  <p:panelGrid cellpadding="5" styleClass="ui-noborder">
+    <f:facet name="header">
+      <p:row>
+        <p:column colspan="2"><h:outputText value="User Detail" /></p:column>
+      </p:row>
+    </f:facet>
+    <p:row>
+      <p:column><h:outputLabel value="Email: " /></p:column>
+      <p:column><p:inputText value="${symbol_pound}{userDetail.user.email}" disabled="true" /></p:column>
+    </p:row>
+    <p:row>
+      <p:column><h:outputLabel value="First Name: " /></p:column>
+      <p:column><p:inputText value="${symbol_pound}{userDetail.user.firstName}" /></p:column>
+    </p:row>
+    <p:row>
+      <p:column><h:outputLabel value="Last Name: " /></p:column>
+      <p:column><p:inputText value="${symbol_pound}{userDetail.user.lastName}" /></p:column>
+    </p:row>
+    <p:row>
+      <p:column><p:commandButton action="${symbol_pound}{logout.logout()}" ajax="false" value="Logout" /></p:column>
+      <p:column><p:spacer /></p:column>
+    </p:row>
+    <p:row>
+      <p:column><p:commandButton action="${symbol_pound}{userDetail.update()}" ajax="false" value="Update" /></p:column>
+      <p:column><p:button outcome="/views/user/changepassword.xhtml" value="Change Password" /></p:column>
+    </p:row>
+    <ui:fragment rendered="${symbol_pound}{principal.admin}">
+      <p:row>
+        <p:column><p:spacer /></p:column>
+        <p:column><p:button outcome="/views/admin/admin.xhtml" value="Administer Users" /></p:column>
+      </p:row>
+    </ui:fragment>
+  </p:panelGrid>
+  <p:messages for="userdetail" showDetail="true" autoUpdate="true" closable="true" />
+</h:form>
+</f:view>

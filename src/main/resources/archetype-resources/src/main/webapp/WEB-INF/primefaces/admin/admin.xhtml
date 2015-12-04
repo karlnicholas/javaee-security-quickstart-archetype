@@ -1,0 +1,28 @@
+#set( $symbol_pound = '#' )
+#set( $symbol_dollar = '$' )
+#set( $symbol_escape = '\' )
+<ui:composition template="/WEB-INF/template/template.xhtml" 
+  xmlns="http://www.w3.org/1999/xhtml"
+  xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+  xmlns:f="http://xmlns.jcp.org/jsf/core"
+  xmlns:h="http://xmlns.jcp.org/jsf/html"
+  xmlns:p="http://primefaces.org/ui">
+<ui:define name="title"><h:outputText value="Java EE MVC - Admin" /></ui:define>
+<ui:define name="content">
+<h3><h:outputText value=""/></h3>
+<h:form>
+  <p:dataTable value="${symbol_pound}{admin.users}" var="u">
+    <f:facet name="header"><h:outputText value="Administer Users" /></f:facet>
+    <p:column headerText="Email"><h:outputText value="${symbol_pound}{u.email}" /></p:column>
+    <p:column headerText="First Name"><h:outputText value="${symbol_pound}{u.firstName}" /></p:column>
+    <p:column headerText="Last Name"><h:outputText value="${symbol_pound}{u.lastName}" /></p:column>
+    <p:column headerText="Role">
+      <p:commandButton rendered="${symbol_pound}{not u.admin and (admin.user.id ne u.id )}" action="${symbol_pound}{admin.promoteUser(u.id)}" ajax="false" value="Promote" styleClass="smallButton" />
+      <p:commandButton rendered="${symbol_pound}{u.admin and (admin.user.id ne u.id )}" action="${symbol_pound}{admin.demoteUser(u.id)}" ajax="false" value="Demote" styleClass="smallButton"/>
+    </p:column>
+    <p:column headerText="Remove"><p:commandButton rendered="${symbol_pound}{admin.user.id ne u.id}" action="${symbol_pound}{admin.removeUser(u.id)}" ajax="false" value="Remove"  styleClass="smallButton"/></p:column>
+  </p:dataTable>
+  <p:messages for="admin" showDetail="true" autoUpdate="true" closable="true" />
+  </h:form>
+</ui:define>
+</ui:composition>
