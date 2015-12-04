@@ -113,4 +113,3 @@ Creating a new project in Eclipse
 * Go to `Preferences > Maven > Archetypes` and `Add Local Catalog`
 * Select the catalog from file (`archetype-catalog.xml`) 
 * Create new Maven project and select the archetype
-
