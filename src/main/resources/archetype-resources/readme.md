@@ -30,6 +30,8 @@ when the final releases come out.
 This project was inspired by kolorobot's Spring-Mvc-Quickstart-Archetype project.
 This readme.md started with the readme.md from the same.
 
+[You can see the project in action on OpenShift.](http://mvc-jsec.rhcloud.com/) 
+
 Generated project characteristics
 -------------------------
 * Java EE MVC web application for Wildly 9 environment
