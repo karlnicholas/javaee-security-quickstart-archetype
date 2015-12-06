@@ -27,7 +27,8 @@ This project has a Junit/Arquillian/Drone/Graphene testing setup that required
 release candidate versions of Arquillian POMS. Hopefully this will be updated 
 when the final releases come out.  
 
-This project was inspired by kolorobot's Spring-Mvc-Quickstart-Archetype project.
+This project was inspired by [kolorobot's](https://github.com/kolorobot) 
+[Spring-Mvc-Quickstart-Archetype project.](https://github.com/kolorobot/spring-mvc-quickstart-archetype)
 This readme.md started with the readme.md from the same.
 
 [You can see the project in action on OpenShift.](http://mvc-jsec.rhcloud.com/) 
