@@ -49,8 +49,26 @@
       </includes>
     </fileSet>
     <fileSet filtered="true" encoding="UTF-8">
+      <directory>.settings</directory>
+      <includes>
+        <include>**/*.xml</include>
+      </includes>
+    </fileSet>
+    <fileSet encoding="UTF-8">
+      <directory>.settings</directory>
+      <includes>
+        <include>**/*.container</include>
+        <include>**/*.component</include>
+        <include>**/*.name</include>
+        <include>**/*.jsdtscope</include>
+        <include>**/*.prefs</include>
+      </includes>
+    </fileSet>
+    <fileSet filtered="true" encoding="UTF-8">
       <directory></directory>
       <includes>
+        <include>.classpath</include>
+        <include>.project</include>
         <include>jboss-security-domain.xml</include>
       </includes>
     </fileSet>
@@ -58,7 +76,6 @@
       <directory></directory>
       <includes>
         <include>.gitignore</include>
-        <include>db-schema.sql</include>
         <include>readme.md</include>
       </includes>
     </fileSet>
