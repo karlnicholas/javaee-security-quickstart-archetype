@@ -29,6 +29,7 @@ import org.jboss.shrinkwrap.resolver.api.maven.Maven;
 import org.jboss.shrinkwrap.resolver.api.maven.PomEquippedResolveStage;
 import org.junit.Test;
 import org.junit.runner.RunWith;
+import org.openqa.selenium.Dimension;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
@@ -92,7 +93,8 @@ public class ControllerTest {
 
     @Test
     public void testRegister() throws Exception {
-        // only one user should be registered
+    	browser.manage().window().setSize(new Dimension(800,600));
+    	// only one user should be registered
         browser.get(deploymentUrl.toExternalForm() + "");
         guardAjax(showUserCountButton).click();
         assertEquals("There are 1 users", numberOfUsers.getText().trim());
