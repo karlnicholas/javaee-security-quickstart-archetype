@@ -35,10 +35,22 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 
 import ${package}.controller.*;
+import ${package}.controller.user.Admin;
+import ${package}.controller.user.ChangePassword;
+import ${package}.controller.user.Login;
+import ${package}.controller.user.Logout;
+import ${package}.controller.user.Principal;
+import ${package}.controller.user.Register;
+import ${package}.controller.user.UserDetail;
 import ${package}.facade.*;
 import ${package}.model.*;
 import ${package}.util.*;
 
+/**
+ * Test the website with arquillian, drone, and sellium.
+ * @author Karl Nicholas.
+ *
+ */
 @RunWith(Arquillian.class)
 public class ControllerTest {
     private static final String WEBAPP_SRC = "src/main/webapp";

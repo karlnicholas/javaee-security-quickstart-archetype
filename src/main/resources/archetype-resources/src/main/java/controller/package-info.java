@@ -2,10 +2,8 @@
 #set( $symbol_dollar = '$' )
 #set( $symbol_escape = '\' )
 /**
- * 
- */
-/**
- * @author karl
+ * Root controller package.
+ * @author Karl Nicholas
  *
  */
 package ${package}.controller;

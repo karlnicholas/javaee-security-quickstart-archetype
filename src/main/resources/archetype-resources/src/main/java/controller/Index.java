@@ -24,7 +24,7 @@ public class Index {
 
     /**
      * UserCountMessage field
-     * @return userCountMessage
+     * @return userCountMessage field.
      */
     public String getUserCountMessage() {
         return userCountMessage;
@@ -32,7 +32,7 @@ public class Index {
 
     /**
      * UserCountMessage Field
-     * @param userCountMessage
+     * @param userCountMessage field.
      */
     public void setUserCountMessage(String userCountMessage) {
         this.userCountMessage = userCountMessage;

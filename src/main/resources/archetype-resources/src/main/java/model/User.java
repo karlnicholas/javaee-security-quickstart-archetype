@@ -21,17 +21,22 @@ import javax.validation.constraints.Pattern;
 import javax.xml.bind.annotation.XmlRootElement;
 import javax.xml.bind.annotation.XmlTransient;
 
-
-@SuppressWarnings("serial")
-@Table(uniqueConstraints = @UniqueConstraint(columnNames = "email"),name = "user")
-@Entity
-@XmlRootElement
+/**
+ * User Entity. Holds everything needed for registering users on the system.
+ * 
+ * @author Karl Nicholas
+ *
+ */
 @NamedQueries({
     @NamedQuery(name = User.FIND_BY_EMAIL, query = "select u from User u where u.email = :email"), 
     @NamedQuery(name = User.COUNT_EMAIL, query = "select Count(u.email) from User u where u.email = :email"), 
     @NamedQuery(name = User.FIND_ALL, query = "select u from User u"), 
     @NamedQuery(name = User.USER_COUNT, query = "select count(u) from User u"), 
 })
+@SuppressWarnings("serial")
+@XmlRootElement
+@Table(uniqueConstraints = @UniqueConstraint(columnNames = "email"),name = "user")
+@Entity
 public class User implements Serializable {
     public static final String FIND_BY_EMAIL = "User.findByEmail";
     public static final String COUNT_EMAIL = "User.countEmail";
@@ -69,7 +74,7 @@ public class User implements Serializable {
     }
     /**
      * Set User's E-Mail
-     * @param email
+     * @param email email.
      */
     public void setEmail(String email) {
         this.email = email;
@@ -83,7 +88,7 @@ public class User implements Serializable {
     }
     /**
      * Set User's Password
-     * @param password
+     * @param password field.
      */
     public void setPassword(String password) {
         this.password = password;
@@ -99,7 +104,7 @@ public class User implements Serializable {
     /**
      * Set User's First Name
      * 
-     * @param firstName
+     * @param firstName User First Name.
      */
     public void setFirstName(String firstName) {
         this.firstName = firstName;
@@ -107,7 +112,7 @@ public class User implements Serializable {
     /**
      * Get Users's Last Name
      * 
-     * @return Last Name
+     * @return String Last Name
      */
     public String getLastName() {
         return lastName;
@@ -115,7 +120,7 @@ public class User implements Serializable {
     /**
      * Set User's Last Name
      * 
-     * @param lastName
+     * @param lastName User's Last Name
      */
     public void setLastName(String lastName) {
         this.lastName = lastName;
@@ -136,7 +141,7 @@ public class User implements Serializable {
     }
     /**
      * Set Roles associated with User
-     * @param roles
+     * @param roles to be set.
      */
     public void setRoles(List<Role> roles) {
         this.roles = roles;

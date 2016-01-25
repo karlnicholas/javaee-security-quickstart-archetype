@@ -76,6 +76,7 @@
       <directory></directory>
       <includes>
         <include>.gitignore</include>
+        <include>.tern-project</include>
         <include>readme.md</include>
       </includes>
     </fileSet>

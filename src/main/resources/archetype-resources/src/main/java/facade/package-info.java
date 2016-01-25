@@ -2,10 +2,8 @@
 #set( $symbol_dollar = '$' )
 #set( $symbol_escape = '\' )
 /**
- * 
- */
-/**
- * @author karl
+ * Facades for accessing database entities.
+ * @author Karl Nicholas
  *
  */
 package ${package}.facade;
