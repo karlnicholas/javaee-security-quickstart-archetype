@@ -32,8 +32,8 @@ This project was inspired by [kolorobot's](https://github.com/kolorobot)
 This readme.md started with the readme.md from the same.
 
 [You can see the project in action on OpenShift.](http://mvc-jsec.rhcloud.com/)
-Note that openshift will shutdown the server after 48 hours of inactivity. If this 
-has happened, you will need to refresh the site for a couple of minutes while opneshift  
+Note that `OpenShift` will shutdown the server after 48 hours of inactivity. If this 
+has happened, you will need to refresh the site for a couple of minutes while `OpenShift` 
 starts the project up again. 
 
 Generated project characteristics
@@ -78,12 +78,14 @@ or
 Install the security-domain
 ----------------
 
-The jboss-security-domain.xml is the xml fragment that needs to be
-copied to the Wildfly server's configuration file, typically
-standalone.xml. Find the <security-domains> section of the
-configuration file and insert the contents of the jboss-security-domain.xml
-into the section as a new <security-domain>. This could conceivably be 
-done through wildfly commands, but I haven't sorted that out yet.   
+The security configuration of Wildfly needs to be updated because this 
+archetype uses container managed security. The file jboss-security-domain.xm, 
+found in the root of your new project must be manually added to the Wildfly server's 
+configuration file, which is typically standalone.xml. Find the `<security-domains>` 
+section of the configuration file and insert the contents of 
+the jboss-security-domain.xml into the section as a new `<security-domain>`. 
+Note: This could be done through wildfly console commands, 
+but I haven't worked out how to do that yet.   
 
 Test the project
 ----------------
