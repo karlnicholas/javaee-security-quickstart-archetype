@@ -11,7 +11,7 @@ import javax.inject.Inject;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
 
-import ${package}.facade.UserFacade;
+import ${package}.bean.UserSessionBean;
 import ${package}.model.User;
 
 /**
@@ -25,8 +25,8 @@ public class Login {
     private String email;
     private String password;
 
-    @Inject FacesContext context;
-    @Inject UserFacade userFacade;
+    @Inject private FacesContext context;
+    @Inject private UserSessionBean userBean;
 
     /**
      * Login a user using the email and password fields.
@@ -39,7 +39,7 @@ public class Login {
         if ( request.getUserPrincipal() == null ) {
             try {
                 request.login(email, password);
-                User user = userFacade.findByEmail(email);
+                User user = userBean.findByEmail(email);
                 externalContext.getSessionMap().put("user", user);                
             } catch (ServletException ignored) {
                 // Handle unknown username/password in request.login().

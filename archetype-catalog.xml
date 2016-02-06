@@ -6,7 +6,7 @@
     <archetype>
       <groupId>jsec</groupId>
       <artifactId>javaee-security-archetype</artifactId>
-      <version>0.0.2</version>
+      <version>0.0.3</version>
       <description>Java EE MVC Security quickstart for user self registration and form based security.</description>
     </archetype>
   </archetypes>

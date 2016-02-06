@@ -5,9 +5,10 @@ package ${package}.controller.user;
 
 import javax.enterprise.inject.Model;
 import javax.faces.application.FacesMessage;
+import javax.faces.context.FacesContext;
 import javax.inject.Inject;
 
-import ${package}.facade.UserFacade;
+import ${package}.bean.UserSessionBean;
 import ${package}.util.Resources;
 
 /**
@@ -19,7 +20,8 @@ import ${package}.util.Resources;
 @Model
 public class UserDetail extends Principal {
     
-    @Inject UserFacade userFacade;
+    @Inject private FacesContext context;
+    @Inject private UserSessionBean userBean;
 
     /**
      * Update/merge user fields
@@ -28,7 +30,7 @@ public class UserDetail extends Principal {
     public String update() {
         try {
             // update user
-            userFacade.merge(getUser());
+            userBean.merge(getUser());
         } catch (Exception e) {
             context.addMessage(null, new FacesMessage(FacesMessage.SEVERITY_ERROR, "Update unsuccessful", Resources.getRootErrorMessage(e)));
             return null;

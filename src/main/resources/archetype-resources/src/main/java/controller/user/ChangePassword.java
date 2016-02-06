@@ -5,9 +5,10 @@ package ${package}.controller.user;
 
 import javax.enterprise.inject.Model;
 import javax.faces.application.FacesMessage;
+import javax.faces.context.FacesContext;
 import javax.inject.Inject;
 
-import ${package}.facade.UserFacade;
+import ${package}.bean.UserSessionBean;
 import ${package}.util.Resources;
 
 /**
@@ -17,10 +18,11 @@ import ${package}.util.Resources;
  *
  */
 @Model
-public class ChangePassword extends Principal {
-    
-    @Inject UserFacade userFacade;
+public class ChangePassword extends Principal {    
     private String passwordConfirmation;
+    
+    @Inject private UserSessionBean userBean;
+    @Inject private FacesContext context;
     
     /**
      * Check user.password against passwordConfirmation, encode password, and merge user.
@@ -34,7 +36,7 @@ public class ChangePassword extends Principal {
                 return null;
             }
             // update user
-            userFacade.merge(userFacade.updatePassword(getUser()));
+            userBean.merge(userBean.updatePassword(getUser()));
         } catch (Exception e) {
             context.addMessage(null, new FacesMessage(FacesMessage.SEVERITY_ERROR, "Update failed", Resources.getRootErrorMessage(e)));
             return null;

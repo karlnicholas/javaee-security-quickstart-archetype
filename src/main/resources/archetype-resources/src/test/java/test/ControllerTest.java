@@ -34,6 +34,7 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 
+import ${package}.bean.*;
 import ${package}.controller.*;
 import ${package}.controller.user.Admin;
 import ${package}.controller.user.ChangePassword;
@@ -42,7 +43,6 @@ import ${package}.controller.user.Logout;
 import ${package}.controller.user.Principal;
 import ${package}.controller.user.Register;
 import ${package}.controller.user.UserDetail;
-import ${package}.facade.*;
 import ${package}.model.*;
 import ${package}.util.*;
 
@@ -70,8 +70,8 @@ public class ControllerTest {
             .addClasses(
                     User.class, 
                     Role.class, 
-                    UserFacade.class, 
-                    RoleFacade.class, 
+                    UserSessionBean.class, 
+                    RoleSingletonBean.class, 
                     Resources.class, 
                     Admin.class, 
                     ChangePassword.class, 

@@ -29,7 +29,8 @@ import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 
 /**
- * This class uses CDI to alias Java EE resources, such as the persistence context, to CDI beans
+ * This class uses CDI to alias Java EE resources, such as the persistence context, to CDI beans.
+ * Naturally, resources can only be injected into container created classes.
  *
  * <p>
  * Example injection on a managed bean field:
@@ -41,22 +42,40 @@ import javax.persistence.PersistenceContext;
  * </pre>
  */
 public class Resources {
-    // use @SuppressWarnings to tell IDE to ignore warnings about field not being referenced directly
+    
+	/**
+	 * Produce EntityManager
+	 */
     @Produces
     @PersistenceContext(unitName="primary")
     private EntityManager em;
 
+    /**
+     * Produce Logger
+     * @param injectionPoint class injected into
+     * @return Logger for logging
+     */
     @Produces
     public Logger produceLog(InjectionPoint injectionPoint) {
         return Logger.getLogger(injectionPoint.getMember().getDeclaringClass().getName());
     }
 
+    /**
+     * Produce FacesContext
+     * @return FacesContext produced
+     */
     @Produces
     @RequestScoped
     public FacesContext produceFacesContext() {
         return FacesContext.getCurrentInstance();
     }
 
+    /**
+     * Static method for determining the lowest level error message of an Exception chain.
+     *  
+     * @param e Exception caught
+     * @return Lowest level error message 
+     */
     public static synchronized String getRootErrorMessage(Exception e) {
         // Default to general error message that registration failed.
         String errorMessage = "Severe Error. See server log for more information";

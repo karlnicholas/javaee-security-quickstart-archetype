@@ -11,15 +11,15 @@ import javax.faces.context.FacesContext;
 import javax.inject.Inject;
 import javax.servlet.http.HttpServletRequest;
 
-import ${package}.facade.UserFacade;
+import ${package}.bean.UserSessionBean;
 import ${package}.model.User;
 import ${package}.util.Resources;
 
 @Model
 public class Register {
 
-    @Inject FacesContext context;
-    @Inject UserFacade userFacade;
+    @Inject private FacesContext context;
+    @Inject private UserSessionBean userBean;
     
     private User newUser;
 
@@ -37,7 +37,7 @@ public class Register {
         try {
             // save the password before encoding
             String password = newUser.getPassword();
-            User user = userFacade.encodeAndSave(newUser);
+            User user = userBean.encodeAndSave(newUser);
             if ( user == null ) {
                 context.addMessage(null, new FacesMessage(FacesMessage.SEVERITY_INFO, "Registration failed!", "User Already Exists" ));
                 return null;

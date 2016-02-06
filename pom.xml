@@ -4,7 +4,7 @@
 
   <groupId>jsec</groupId>
   <artifactId>javaee-security-archetype</artifactId>
-  <version>0.0.2</version>
+  <version>0.0.3</version>
   <packaging>maven-archetype</packaging>
 
   <name>javaee-security-archetype</name>

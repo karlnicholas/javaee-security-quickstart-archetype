@@ -48,10 +48,10 @@ public class User implements Serializable {
     private Long id;
 
     @NotNull(message="{email.required}")
-    @Pattern(regexp = "[a-z0-9!${symbol_pound}${symbol_dollar}%&'*+/=?^_`{|}~-]+(?:${symbol_escape}${symbol_escape}."
-            + "[a-z0-9!${symbol_pound}${symbol_dollar}%&'*+/=?^_`{|}~-]+)*@"
-            + "(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?${symbol_escape}${symbol_escape}.)+[a-z0-9]"
-            + "(?:[a-z0-9-]*[a-z0-9])?",
+    @Pattern(regexp = "[A-Za-z0-9!${symbol_pound}${symbol_dollar}%&'*+/=?^_`{|}~-]+(?:${symbol_escape}${symbol_escape}."
+            + "[A-Za-z0-9!${symbol_pound}${symbol_dollar}%&'*+/=?^_`{|}~-]+)*@"
+            + "(?:[A-Za-z0-9](?:[A-Za-z0-9-]*[A-Za-z0-9])?${symbol_escape}${symbol_escape}.)+[A-Za-z0-9]"
+            + "(?:[A-Za-z0-9-]*[A-Za-z0-9])?",
             message = "{invalid.email}")
     private String email;
 

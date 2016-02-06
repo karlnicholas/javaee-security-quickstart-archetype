@@ -6,12 +6,12 @@ package ${package}.controller;
 import javax.enterprise.inject.Model;
 import javax.inject.Inject;
 
-import ${package}.facade.UserFacade;
+import ${package}.bean.UserSessionBean;
 
 @Model
 public class Index {
     
-    @Inject UserFacade userFacade;
+    @Inject private UserSessionBean userBean;
     
     private String userCountMessage;
     
@@ -19,7 +19,7 @@ public class Index {
      * Set UserCountMessage field with the number of registered users
      */
     public void updateUserCount() {
-        userCountMessage = String.format("There are %d users", userFacade.userCount() );
+        userCountMessage = String.format("There are %d users", userBean.userCount() );
     }
 
     /**

@@ -16,7 +16,7 @@ import ${package}.util.Resources;
 @Model
 public class Logout {
 
-    @Inject FacesContext context;
+    @Inject private FacesContext context;
 
     /**
      * Logout current user
