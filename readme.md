@@ -1,11 +1,12 @@
-[Java EE MVC Quickstart Archetype](https://github.com/karlnicholas/javaee-mvc-quickstart-archetype)
+[Java EE MVC Security Quickstart Archetype](https://github.com/karlnicholas/javaee-security-quickstart-archetype)
 =========================================
 
 ### Summary
 
 This project is a [Maven Archetype](https://maven.apache.org/guides/introduction/introduction-to-archetypes.html) 
-for Java EE MVC web application that implements [Java EE Security](https://docs.oracle.com/javaee/7/tutorial/security-webtier002.htm) features. The site allows 
-users to self-register. User information is stored in a database and new 
+for Java EE MVC web application that implements [Java EE Security](https://docs.oracle.com/javaee/7/tutorial/security-webtier002.htm) features. 
+The site demonstrates form based security implemented against a database. The site allows 
+users to self-register. User information is stored in the database and new 
 users are assigned the USER role. The project uses FORM based security for 
 protection of specified views(URLs). Additionally, an ADMIN role is defined 
 and a default administrator is inserted into the database at build-time. Admin's 

@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<archetype-descriptor xsi:schemaLocation="http://maven.apache.org/plugins/maven-archetype-plugin/archetype-descriptor/1.0.0 http://maven.apache.org/xsd/archetype-descriptor-1.0.0.xsd" name="javaee-quickstart-security"
+<archetype-descriptor xsi:schemaLocation="http://maven.apache.org/plugins/maven-archetype-plugin/archetype-descriptor/1.0.0 http://maven.apache.org/xsd/archetype-descriptor-1.0.0.xsd" name="javaee-security-quickstart"
     xmlns="http://maven.apache.org/plugins/maven-archetype-plugin/archetype-descriptor/1.0.0"
     xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
   <fileSets>
@@ -70,9 +70,59 @@
       </includes>
     </fileSet>
     <fileSet filtered="true" encoding="UTF-8">
+      <directory>doc/service</directory>
+      <includes>
+        <include>**/*.html</include>
+      </includes>
+    </fileSet>
+    <fileSet filtered="true" encoding="UTF-8">
+      <directory>doc/controller</directory>
+      <includes>
+        <include>**/*.html</include>
+      </includes>
+    </fileSet>
+    <fileSet filtered="true" encoding="UTF-8">
+      <directory>doc</directory>
+      <includes>
+        <include>**/*.html</include>
+      </includes>
+    </fileSet>
+    <fileSet filtered="true" encoding="UTF-8">
+      <directory>doc/model</directory>
+      <includes>
+        <include>**/*.html</include>
+      </includes>
+    </fileSet>
+    <fileSet filtered="true" encoding="UTF-8">
+      <directory>doc/test</directory>
+      <includes>
+        <include>**/*.html</include>
+      </includes>
+    </fileSet>
+    <fileSet filtered="true" encoding="UTF-8">
+      <directory>doc/index-files</directory>
+      <includes>
+        <include>**/*.html</include>
+      </includes>
+    </fileSet>
+    <fileSet filtered="true" encoding="UTF-8">
       <directory>.settings</directory>
       <includes>
         <include>**/*.xml</include>
+      </includes>
+    </fileSet>
+    <fileSet filtered="true" encoding="UTF-8">
+      <directory>doc/util</directory>
+      <includes>
+        <include>**/*.html</include>
+      </includes>
+    </fileSet>
+    <fileSet encoding="UTF-8">
+      <directory>doc</directory>
+      <includes>
+        <include>**/*.</include>
+        <include>**/*.css</include>
+        <include>**/*.js</include>
       </includes>
     </fileSet>
     <fileSet encoding="UTF-8">

@@ -5,9 +5,9 @@
   <archetypes>
     <archetype>
       <groupId>com.github.karlnicholas</groupId>
-      <artifactId>javaee-quickstart-security-archetype</artifactId>
+      <artifactId>javaee-security-quickstart-archetype</artifactId>
       <version>1.0.0</version>
-      <description>Java EE MVC quickstart with form based security and user self-registration.</description>
+      <description>Java EE MVC quickstart with form based security and user self-registration pages.</description>
     </archetype>
   </archetypes>
 </archetype-catalog>
