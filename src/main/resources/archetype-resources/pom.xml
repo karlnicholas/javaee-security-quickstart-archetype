@@ -6,7 +6,7 @@
   <version>${version}</version>
   <packaging>war</packaging>
   <name>Java EE MVC Quickstart</name>
-  <description>Java EE MVC Quickstart with User self-registration and security.</description>
+  <description>Java EE MVC Quickstart with user self-registration and security.</description>
   <licenses>
     <license>
       <name>Apache License, Version 2.0</name>

@@ -4,7 +4,7 @@
     xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
   <archetypes>
     <archetype>
-      <groupId>com.github.javaee-mvc-quickstarts</groupId>
+      <groupId>com.github.karlnicholas</groupId>
       <artifactId>javaee-mvc-quickstart-archetype</artifactId>
       <version>1.0.0</version>
       <description>Java EE MVC Quickstart with user self-registration and security.</description>
