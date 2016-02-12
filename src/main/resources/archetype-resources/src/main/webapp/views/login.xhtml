@@ -11,11 +11,11 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta http-equiv="x-ua-compatible" content="ie=edge" />
   <link rel="stylesheet" type="text/css" media="all" href="${symbol_pound}{request.contextPath}/webjars/bootstrap/3.3.5/css/bootstrap.min.css"/>
-  <title><ui:insert name="title"><h:outputText value="Java EE Security - Login Required" /></ui:insert></title>
+  <title><ui:insert name="title"><h:outputText value="Java EE MVC - Login Required" /></ui:insert></title>
 </h:head>
 <h:body>
 <div class="container-fluid example2">
-<ui:insert name="header"><ui:include src="/WEB-INF/template/header.xhtml" /></ui:insert>
+<ui:insert name="header"><ui:include src="/views/template/header.xhtml" /></ui:insert>
 <h:form id="loginForm" onsubmit="document.getElementById('loginForm').action='j_security_check';" prependId="false" styleClass="form-horizontal">
   <div class="form-group">
     <div class="col-sm-offset-2 col-sm-4"><h:outputText value="Login Required" styleClass="control-label"/></div>

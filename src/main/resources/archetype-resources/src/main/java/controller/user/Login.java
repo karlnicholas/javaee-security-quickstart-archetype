@@ -1,7 +1,7 @@
 #set( $symbol_pound = '#' )
 #set( $symbol_dollar = '$' )
 #set( $symbol_escape = '\' )
-package ${package}.controller.user;
+package controller.user;
 
 import javax.enterprise.inject.Model;
 import javax.faces.application.FacesMessage;
@@ -11,8 +11,8 @@ import javax.inject.Inject;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
 
-import ${package}.bean.UserSessionBean;
-import ${package}.model.User;
+import model.User;
+import service.UserSessionBean;
 
 /**
  * Controller for logging in a user from email and password fields.
@@ -38,6 +38,7 @@ public class Login {
         HttpServletRequest request = (HttpServletRequest) externalContext.getRequest();
         if ( request.getUserPrincipal() == null ) {
             try {
+            	// Ignorecase is handled by the database, see create.sql.
                 request.login(email, password);
                 User user = userBean.findByEmail(email);
                 externalContext.getSessionMap().put("user", user);                

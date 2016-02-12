@@ -1,7 +1,7 @@
 #set( $symbol_pound = '#' )
 #set( $symbol_dollar = '$' )
 #set( $symbol_escape = '\' )
-package ${package}.controller.user;
+package controller.user;
 
 import javax.annotation.PostConstruct;
 import javax.enterprise.inject.Model;
@@ -11,9 +11,9 @@ import javax.faces.context.FacesContext;
 import javax.inject.Inject;
 import javax.servlet.http.HttpServletRequest;
 
-import ${package}.bean.UserSessionBean;
-import ${package}.model.User;
-import ${package}.util.Resources;
+import model.User;
+import service.UserSessionBean;
+import util.Resources;
 
 @Model
 public class Register {
@@ -45,6 +45,7 @@ public class Register {
                 // login user            
                 ExternalContext externalContext = context.getExternalContext();
                 HttpServletRequest request = (HttpServletRequest) externalContext.getRequest();
+            	// Ignorecase is handled by the database, see create.sql.
                 request.login(newUser.getEmail(), password);
                 externalContext.getSessionMap().put("user", user);                
             }

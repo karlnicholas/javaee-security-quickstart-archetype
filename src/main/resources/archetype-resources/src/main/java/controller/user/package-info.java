@@ -6,4 +6,4 @@
  * @author Karl Nicholas
  *
  */
-package ${package}.controller.user;
+package controller.user;

@@ -1,7 +1,7 @@
 #set( $symbol_pound = '#' )
 #set( $symbol_dollar = '$' )
 #set( $symbol_escape = '\' )
-package ${package}.controller.user;
+package controller.user;
 
 import javax.enterprise.inject.Model;
 import javax.faces.application.FacesMessage;
@@ -11,7 +11,7 @@ import javax.inject.Inject;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
 
-import ${package}.util.Resources;
+import util.Resources;
 
 @Model
 public class Logout {

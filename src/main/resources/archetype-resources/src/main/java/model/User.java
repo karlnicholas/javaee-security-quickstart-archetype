@@ -1,7 +1,7 @@
 #set( $symbol_pound = '#' )
 #set( $symbol_dollar = '$' )
 #set( $symbol_escape = '\' )
-package ${package}.model;
+package model;
 
 import java.io.Serializable;
 import java.util.List;

@@ -1,7 +1,7 @@
 #set( $symbol_pound = '#' )
 #set( $symbol_dollar = '$' )
 #set( $symbol_escape = '\' )
-package ${package}.controller.user;
+package controller.user;
 
 import javax.annotation.PostConstruct;
 import javax.enterprise.inject.Model;
@@ -11,8 +11,8 @@ import javax.inject.Inject;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
 
-import ${package}.bean.UserSessionBean;
-import ${package}.model.User;
+import model.User;
+import service.UserSessionBean;
 
 /**
  * Support bean for views. Holds the currently logged in user, if any. 

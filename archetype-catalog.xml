@@ -4,10 +4,10 @@
     xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
   <archetypes>
     <archetype>
-      <groupId>jsec</groupId>
-      <artifactId>javaee-security-archetype</artifactId>
-      <version>0.0.3</version>
-      <description>Java EE MVC Security quickstart for user self registration and form based security.</description>
+      <groupId>com.github.javaee-mvc-quickstarts</groupId>
+      <artifactId>javaee-mvc-quickstart-archetype</artifactId>
+      <version>1.0.0</version>
+      <description>Java EE MVC Quickstart with user self-registration and security.</description>
     </archetype>
   </archetypes>
 </archetype-catalog>

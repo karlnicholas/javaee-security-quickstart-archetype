@@ -1,17 +1,16 @@
-Java EE Security Quickstart Maven Archetype
+[Java EE MVC Quickstart Archetype](https://github.com/karlnicholas/javaee-mvc-quickstart-archetype)
 =========================================
 
-Summary
--------
-This project is a Maven archetype for Java EE MVC web application that 
-implements Java EE security features. The project allows users to self-register 
-at the website. User information is stored in a database and new users are 
-assigned the USER role. The project configures FORM based security for 
+### Summary
+
+This project is a [Maven Archetype](https://maven.apache.org/guides/introduction/introduction-to-archetypes.html) 
+for Java EE MVC web application that implements [Java EE Security](https://docs.oracle.com/javaee/7/tutorial/security-webtier002.htm) features. The site allows 
+users to self-register. User information is stored in a database and new 
+users are assigned the USER role. The project uses FORM based security for 
 protection of specified views(URLs). Additionally, an ADMIN role is defined 
 and a default administrator is inserted into the database at build-time. Admin's 
-can inspect and manage all users. This project is intended to be a starting
-point for websites/services that expect to require user self-registration 
-and security.  
+can inspect and manage all users. This project is intended to be instructive 
+for developers interested in Java EE site security implementation.  
  
 This program uses the Servlet 3.0 HttpSevletRequest.login() and logout() calls
 in order to login users. Role base security is also implemented for EJB's, but 
@@ -36,17 +35,15 @@ Note that `OpenShift` will shutdown the server after 48 hours of inactivity. If 
 has happened, you will need to refresh the site for a couple of minutes while `OpenShift` 
 starts the project up again. 
 
-Generated project characteristics
--------------------------
+### Generated project characteristics
 * Java EE MVC web application for Wildly 9 environment
 * JSF 2.2 and Bootstrap
 * JPA 2.1
 * H2DB (H2 Development Database) 
 * JUnit/Arquillian/Drone/Graphene for testing
-* Java EE Security Supported by JBoss/Wildfly Database Module 
+* Java EE MVC Supported by JBoss/Wildfly Database Module 
 
-Installation
-------------
+### Installation
 
 To install the archetype in your local repository execute following commands:
 
@@ -56,8 +53,7 @@ To install the archetype in your local repository execute following commands:
     mvn clean install
 ```
 
-Create a project
-----------------
+### Create a project
 
 ```bash
     mvn archetype:generate \
@@ -75,8 +71,7 @@ or
 ```
 
 
-Install the security-domain
-----------------
+###Install the security-domain
 
 The security configuration of Wildfly needs to be updated because this 
 archetype uses container managed security. The file jboss-security-domain.xm, 
@@ -87,8 +82,7 @@ the jboss-security-domain.xml into the section as a new `<security-domain>`.
 Note: This could be done through wildfly console commands, 
 but I haven't worked out how to do that yet.   
 
-Test the project
-----------------
+### Test the project
 
 First edit local wildfly server's standalone.xml configuration file to 
 add the javaee-security security-domain. See specific instructions above.
@@ -105,8 +99,7 @@ For testing using firefox, use:
     mvn test -Parq-wildfly-remote,firefox
 ```
 
-Install the project
-----------------
+### Install the project
 
 First edit local Wildfly server's standalone.xml configuration file to 
 add the javaee-security security-domain. See specific instructions above.
@@ -116,8 +109,7 @@ Start the local wildfly server, e.g., $JBOSS_HOME/bin/standalone.sh
     mvn clean install wildfly:deploy
 ```
 
-Test on the browser
--------------------
+### Test on the browser
 
 First edit local wildfly server's standalone.xml configuration file to 
 add the javaee-security security-domain. See specific instructions above.
@@ -126,8 +118,7 @@ Start the local wildfly server, e.g., $JBOSS_HOME/bin/standalone.sh
     http://localhost:8080/jsec  (or your package name)
 
 
-Uninstall the project
-----------------
+### Uninstall the project
 
 First edit local wildfly server's standalone.xml configuration file to 
 add the javaee-security security-domain. See specific instructions above.
@@ -137,8 +128,7 @@ Start the local wildfly server, e.g., $JBOSS_HOME/bin/standalone.sh
     mvn wildfly:undeploy
 ```
 
-Creating a new project in Eclipse
-----------------------------------
+### Creating a new project in Eclipse
 
 * Import archetype URI by `Import ... > Projects from Git > Clone URI`
 * Install the archetype in local repository with `mvn install`

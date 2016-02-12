@@ -1,15 +1,15 @@
 #set( $symbol_pound = '#' )
 #set( $symbol_dollar = '$' )
 #set( $symbol_escape = '\' )
-<ui:composition template="/WEB-INF/template/template.xhtml"
+<ui:composition template="/views/template/template.xhtml"
   xmlns="http://www.w3.org/1999/xhtml"
   xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
   xmlns:h="http://xmlns.jcp.org/jsf/html"
   xmlns:f="http://xmlns.jcp.org/jsf/core"
   xmlns:p="http://xmlns.jcp.org/jsf/passthrough">
-<ui:define name="title"><h:outputText value="Java EE Security - Home" /></ui:define>
+<ui:define name="title"><h:outputText value="Java EE MVC - Home" /></ui:define>
 <ui:define name="content">
-<h:form id="indexForm" >
+<h:form id="indexForm">
     <div class="row">
       <div class="col-sm-offset-2 col-sm-4"><p><h:outputText id="welcomeMessage" value="Welcome " /><h:outputText id="welcomeUserMessage" rendered="${symbol_pound}{principal.loggedIn}" value="${symbol_pound}{principal.user.firstName}." /></p></div>
     </div>

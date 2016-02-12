@@ -1,15 +1,15 @@
 #set( $symbol_pound = '#' )
 #set( $symbol_dollar = '$' )
 #set( $symbol_escape = '\' )
-package ${package}.controller.user;
+package controller.user;
 
 import javax.enterprise.inject.Model;
 import javax.faces.application.FacesMessage;
 import javax.faces.context.FacesContext;
 import javax.inject.Inject;
 
-import ${package}.bean.UserSessionBean;
-import ${package}.util.Resources;
+import service.UserSessionBean;
+import util.Resources;
 
 /**
  * Controller to update User information.

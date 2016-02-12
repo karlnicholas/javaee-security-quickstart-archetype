@@ -1,7 +1,7 @@
 #set( $symbol_pound = '#' )
 #set( $symbol_dollar = '$' )
 #set( $symbol_escape = '\' )
-package ${package}.controller;
+package controller;
 
 import javax.enterprise.inject.Model;
 import javax.faces.component.UIComponent;

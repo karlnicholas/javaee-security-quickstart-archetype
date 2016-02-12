@@ -5,8 +5,8 @@
   <artifactId>${artifactId}</artifactId>
   <version>${version}</version>
   <packaging>war</packaging>
-  <name>Java EE MVC Security: Quickstart</name>
-  <description>Java EE MVC Security quickstart for user self registration and form based security.</description>
+  <name>Java EE MVC Quickstart</name>
+  <description>Java EE MVC Quickstart with User self-registration and security.</description>
   <licenses>
     <license>
       <name>Apache License, Version 2.0</name>
@@ -135,6 +135,11 @@
       <artifactId>xml-apis</artifactId>
       <version>1.4.01</version>
     </dependency>
+    <dependency>
+      <groupId>org.primefaces</groupId>
+      <artifactId>primefaces</artifactId>
+      <version>5.3</version>
+    </dependency>
   </dependencies>
   <build>
     <!-- Maven will append the version to the finalName (which is the name given to the generated war, and hence the context root) -->
@@ -239,4 +244,12 @@
       </build>
     </profile>
   </profiles>
+  <url>http://mvc-jsec.rhcloud.com</url>
+  <scm>
+    <url>https://github.com/karlnicholas/javaee-mvc-quickstart-archetype.git</url>
+  </scm>
+  <organization>
+    <name>Karl Nicholas</name>
+    <url>https://github.com/karlnicholas</url>
+  </organization>
 </project>
