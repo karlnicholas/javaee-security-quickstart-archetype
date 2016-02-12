@@ -1,0 +1,36 @@
+#set( $symbol_pound = '#' )
+#set( $symbol_dollar = '$' )
+#set( $symbol_escape = '\' )
+<ui:composition template="/WEB-INF/template/template.xhtml"
+  xmlns="http://www.w3.org/1999/xhtml"
+  xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+  xmlns:f="http://xmlns.jcp.org/jsf/core"
+  xmlns:h="http://xmlns.jcp.org/jsf/html"
+  xmlns:p="http://primefaces.org/ui">
+<ui:define name="title">Java EE MVC - Login</ui:define>
+<ui:define name="content">
+<h:form id="login" onsubmit="document.getElementById('login').action='j_security_check';" prependId="false">
+  <p:panelGrid cellpadding="5" styleClass="ui-noborder">
+    <f:facet name="header">
+    <p:row>
+      <p:column colspan="2"><h:outputText value="Login Required" /></p:column>
+    </p:row>
+    </f:facet>
+    <p:row>
+      <p:column><p:outputLabel for="j_username" value="Email: " /></p:column>
+      <p:column><p:inputText id="j_username" name="j_username" /></p:column>
+    </p:row>
+    <p:row>
+      <p:column><p:outputLabel for="j_password" value="Password: " /></p:column>
+      <p:column><p:password id="j_password" name="j_password" /></p:column>
+    </p:row>
+    <p:row>
+      <p:column><p:commandButton id="submit" value="Login" ajax="false" /></p:column>
+    </p:row>
+    <p:row>
+    <p:column colspan="2"><p:outputLabel rendered="${symbol_pound}{not empty param['Retry']}" value="Login Failed. Please try again." /></p:column>
+    </p:row>
+  </p:panelGrid>
+</h:form>
+</ui:define>
+</ui:composition>

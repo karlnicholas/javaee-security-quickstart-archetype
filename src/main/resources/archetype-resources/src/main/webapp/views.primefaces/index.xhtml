@@ -1,0 +1,25 @@
+#set( $symbol_pound = '#' )
+#set( $symbol_dollar = '$' )
+#set( $symbol_escape = '\' )
+<ui:composition template="/WEB-INF/template/template.xhtml"
+  xmlns="http://www.w3.org/1999/xhtml"
+  xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+  xmlns:h="http://xmlns.jcp.org/jsf/html"
+  xmlns:p="http://primefaces.org/ui">
+<ui:define name="title"><h:outputText value="Java EE MVC - Home" /></ui:define>
+<ui:define name="content">
+<h:form>
+  <p:panelGrid styleClass="ui-noborder">
+    <p:row>
+      <p:column><h3>Welcome <h:outputText rendered="${symbol_pound}{principal.loggedIn}" value="${symbol_pound}{principal.user.firstName}." /></h3></p:column>
+    </p:row>
+    <p:row>
+      <p:column><p:commandButton action="${symbol_pound}{index.updateUserCount()}" update="userCount" value="Show User Count" /></p:column>
+    </p:row>
+    <p:row>
+      <p:column><p:outputLabel id="userCount" value="${symbol_pound}{index.userCountMessage}" /></p:column>
+    </p:row>
+  </p:panelGrid>
+</h:form>
+</ui:define>
+</ui:composition>

@@ -1,0 +1,29 @@
+#set( $symbol_pound = '#' )
+#set( $symbol_dollar = '$' )
+#set( $symbol_escape = '\' )
+<f:view xmlns="http://www.w3.org/1999/xhtml"
+  xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+  xmlns:f="http://xmlns.jcp.org/jsf/core"
+  xmlns:h="http://xmlns.jcp.org/jsf/html"
+  xmlns:p="http://xmlns.jcp.org/jsf/passthrough">  
+<h:form id="loginsignupForm" styleClass="form-horizontal">
+  <div class="form-group">
+    <div class="col-sm-offset-2 col-sm-4"><h:outputText value="Login or Register" styleClass="control-label"/></div>
+  </div>
+  <div class="form-group">
+    <h:outputLabel for="email" value="Email:" styleClass="col-sm-2 control-label"/>
+    <div class="col-sm-4"><h:inputText id="email" value="${symbol_pound}{login.email}" styleClass="form-control"/></div>
+  </div>
+  <div class="form-group">
+    <h:outputLabel for="password" value="Password:" styleClass="col-sm-2 control-label"/>
+    <div class="col-sm-4"><h:inputSecret id="password" value="${symbol_pound}{login.password}" styleClass="form-control"/></div>
+  </div>
+  <div class="form-group">
+    <div class="col-sm-offset-2 col-sm-2"><h:commandButton id="login" action="${symbol_pound}{login.login()}" value="Login" styleClass="btn btn-default"/></div>
+    <div class="col-sm-2"><h:button id="toRegister" outcome="/views/register.xhtml" value="Register" styleClass="btn"/></div>
+  </div>
+  <div class="form-group">
+    <h:messages p:name="loginsignupForm:messages" globalOnly="true" showDetail="true" styleClass="col-sm-offset-2 col-sm-4"/>
+  </div>
+</h:form>
+</f:view>
