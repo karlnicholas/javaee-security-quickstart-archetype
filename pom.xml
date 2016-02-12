@@ -3,11 +3,11 @@
   <modelVersion>4.0.0</modelVersion>
 
   <groupId>com.github.karlnicholas</groupId>
-  <artifactId>javaee-mvc-quickstart-archetype</artifactId>
+  <artifactId>javaee-quickstart-security-archetype</artifactId>
   <version>1.0.0</version>
   <packaging>maven-archetype</packaging>
 
-  <name>javaee-mvc-quickstart-archetype</name>
+  <name>javaee-quickstart-security-archetype</name>
 
   <build>
     <extensions>
@@ -28,7 +28,7 @@
     </pluginManagement>
   </build>
 
-  <description>Java EE MVC Quickstart with user self-registration and security.</description>
+  <description>Java EE MVC quickstart with form based security and user self-registration.</description>
 
   <url>http://mvc-jsec.rhcloud.com</url>
 
@@ -41,6 +41,6 @@
   </licenses>
 
   <scm>
-    <url>https://github.com/karlnicholas/javaee-mvc-quickstart-archetype.git</url>
+    <url>https://github.com/karlnicholas/javaee-quickstart-security-archetype.git</url>
   </scm>
 </project>

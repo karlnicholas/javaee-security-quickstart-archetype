@@ -6,7 +6,7 @@
   <version>${version}</version>
   <packaging>war</packaging>
   <name>Java EE MVC Quickstart</name>
-  <description>Java EE MVC Quickstart with user self-registration and security.</description>
+  <description>Java EE MVC quickstart with form based security and user self-registration.</description>
   <licenses>
     <license>
       <name>Apache License, Version 2.0</name>
@@ -246,7 +246,7 @@
   </profiles>
   <url>http://mvc-jsec.rhcloud.com</url>
   <scm>
-    <url>https://github.com/karlnicholas/javaee-mvc-quickstart-archetype.git</url>
+    <url>https://github.com/karlnicholas/javaee-quickstart-security-archetype.git</url>
   </scm>
   <organization>
     <name>Karl Nicholas</name>
