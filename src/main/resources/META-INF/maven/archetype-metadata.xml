@@ -88,6 +88,7 @@
       <includes>
         <include>.classpath</include>
         <include>.project</include>
+        <include>jboss-security-domain.xml</include>
       </includes>
     </fileSet>
     <fileSet encoding="UTF-8">
