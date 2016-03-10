@@ -1,0 +1,23 @@
+# Batch script to configure the security domain and define the database query used to authenticate users
+batch
+
+# Configure the javaee-security-quickstart domain
+/subsystem=security/security-domain=javaee-security-quickstart/:add(cache-type=default)
+/subsystem=security/security-domain=javaee-security-quickstart/authentication=classic:add(login-modules=[{ \
+    "code"=>"org.jboss.security.auth.spi.DatabaseServerLoginModule", \ 
+    "flag"=>"required", \
+    "module-options"=>[  \
+        dsJndiName=>"java:jboss/datasources/ExampleDS", \
+        principalsQuery=>"SELECT PASSWORD FROM USER WHERE EMAIL = ?", \
+        rolesQuery=>"SELECT R.ROLE, 'Roles' FROM USER_ROLE UR INNER JOIN ROLE R ON R.ID = UR.ROLES_ID INNER JOIN USER U ON U.ID = UR.USER_ID WHERE U.EMAIL = ?", \
+        hashAlgorithm=>"SHA-256", \
+        hashEncoding=>"BASE64", \
+        hashCharset=>"UTF-8", \
+    ]} \
+])
+
+# Run the batch commands
+run-batch
+
+# Reload the server configuration
+:reload
