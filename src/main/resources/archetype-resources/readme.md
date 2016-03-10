@@ -132,6 +132,18 @@ Start the local wildfly server, e.g., $JBOSS_HOME/bin/standalone.sh
     mvn wildfly:undeploy
 ```
 
+### Create your own `admin@test.com` user and password.
+The admin user and password is loaded from `src/main/resources/META-INF/load-script.sql`, and the password
+is SHA-256/Base64 encoded, as specified in the jboss-security-domain.xml file. To change it, you can do either of 
+the following.
+  * Get a new password by editing the `src/main/java/service/UserSessionBean.java` file. At the end you will find a 
+  main method that encodes a string for you. Put your password of choice in the string and run it as a Java 
+  application. Copy the output string to the load-script password field. Set the email field to a field of your
+  choice. It's probably not a good idea check the changes showing your new password into source control.
+  * Or, use the default user id and password of `admin@test.com/admin` and change the password after you login. If you
+  want to change the email, create a new account and use the current admin account to promote the new account to admin. 
+  Then you will be able to use the new admin account to delete to old one if you want to.
+
 ### Creating a new project in Eclipse
 
 This archetype has been added to `Maven.org` and so it is available in 

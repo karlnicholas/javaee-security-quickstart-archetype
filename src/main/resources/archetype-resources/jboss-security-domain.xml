@@ -1,7 +1,7 @@
 #set( $symbol_pound = '#' )
 #set( $symbol_dollar = '$' )
 #set( $symbol_escape = '\' )
-                <security-domain name="javaee-mvc" cache-type="default">
+                <security-domain name="jboss-security-quickstart" cache-type="default">
                     <authentication>
                         <login-module code="Database" flag="required">
                             <module-option name="dsJndiName" value="java:jboss/datasources/ExampleDS"/>
