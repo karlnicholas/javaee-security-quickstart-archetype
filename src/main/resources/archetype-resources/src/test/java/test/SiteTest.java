@@ -86,6 +86,7 @@ public class SiteTest {
             .addAsResource(new File("src/main/resources/META-INF/create-script.sql"), "META-INF/create-script.sql")
             .addAsResource(new File("src/main/resources/META-INF/drop-script.sql"), "META-INF/drop-script.sql")
             .addAsResource(new File("src/main/resources/META-INF/load-script.sql"), "META-INF/load-script.sql")
+            .addAsResource(new File("src/main/resources/ValidationMessages.properties"), "ValidationMessages.properties")
             .merge(ShrinkWrap.create(GenericArchive.class).as(ExplodedImporter.class)
                     .importDirectory(WEBAPP_SRC).as(GenericArchive.class),
                     "/", Filters.include(".*${symbol_escape}${symbol_escape}.xhtml${symbol_dollar}"))
@@ -121,7 +122,17 @@ public class SiteTest {
 
         // register a new user
         // browser.get(deploymentUrl.toExternalForm() + "views/register.xhtml");
+        // go through error case first
         guardHttp(toRegisterButton).click();
+        registerEmail.sendKeys("");
+        registerPassword.sendKeys("");
+        registerFirstName.sendKeys("");
+        registerLastName.sendKeys("");
+        guardHttp(registerButton).click();
+        assertEquals("Email Required", helpforemailMessage.getText().trim());
+        assertEquals("Password Required", helpforpasswordMessage.getText().trim());
+
+        // go through error case first
         registerEmail.sendKeys("karl@karl.com");
         registerPassword.sendKeys("1234");
         registerFirstName.sendKeys("Karl");
@@ -157,6 +168,16 @@ public class SiteTest {
         loginJ_username.sendKeys("karl@karl.com");
         loginJ_password.sendKeys("1234");
         guardHttp(loginSubmitButton).click();
+        // then test change password error
+        changepasswordPassword.sendKeys("");
+        changepasswordConfirmPassword.sendKeys("");
+        guardHttp(updatePasswordButton).click();
+        assertEquals("Password Required", changepasswordhelpMessage.getText().trim());
+        // then test change password error
+        changepasswordPassword.sendKeys("1234");
+        changepasswordConfirmPassword.sendKeys("12345");
+        guardHttp(updatePasswordButton).click();
+        assertEquals("Passwords Must Match", passwordmatchMessage.getText().trim());
         // then change password
         changepasswordPassword.sendKeys("1234");
         changepasswordConfirmPassword.sendKeys("1234");
@@ -222,6 +243,8 @@ public class SiteTest {
     @FindBy(id = "registerForm:firstName") private WebElement registerFirstName;
     @FindBy(id = "registerForm:lastName") private WebElement registerLastName;
     @FindBy(id = "registerForm:register") private WebElement registerButton;
+    @FindBy(id = "registerForm:helpforemail") private WebElement helpforemailMessage;
+    @FindBy(id = "registerForm:helpforpassword") private WebElement helpforpasswordMessage;
     
     // userdetail Page
     @FindBy(id = "userdetailForm:firstName") private WebElement userdetailFirstName;
@@ -240,6 +263,8 @@ public class SiteTest {
     @FindBy(id = "changepasswordForm:password") private WebElement changepasswordPassword;
     @FindBy(id = "changepasswordForm:confirmPassword") private WebElement changepasswordConfirmPassword;
     @FindBy(id = "changepasswordForm:updatePassword") private WebElement updatePasswordButton;
+    @FindBy(id = "changepasswordForm:helpforpassword") private WebElement changepasswordhelpMessage;
+    @FindBy(name = "changepasswordForm:messages") private WebElement passwordmatchMessage;
 
     // admin Page
     @FindBy(id = "adminForm:users:1:promote") private WebElement promoteButton;

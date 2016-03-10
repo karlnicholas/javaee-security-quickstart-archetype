@@ -14,6 +14,14 @@
       <url>http://www.apache.org/licenses/LICENSE-2.0.html</url>
     </license>
   </licenses>
+  <url>http://mvc-jsec.rhcloud.com</url>
+  <scm>
+    <url>https://github.com/karlnicholas/javaee-security-quickstart-archetype.git</url>
+  </scm>
+  <organization>
+    <name>Karl Nicholas</name>
+    <url>https://github.com/karlnicholas</url>
+  </organization>
   <properties>
     <!-- Define the version of the arquillian BOMs we want to import to specify tested stacks. -->
     <version.org.wildfly.wildfly-arquillian>8.2.1.Final</version.org.wildfly.wildfly-arquillian>
@@ -34,21 +42,21 @@
       <dependency>
         <groupId>org.jboss.arquillian</groupId>
         <artifactId>arquillian-bom</artifactId>
-        <version>1.1.10.Final</version>
+        <version>1.1.11.Final</version>
         <type>pom</type>
         <scope>import</scope>
       </dependency>
       <dependency>
         <groupId>org.jboss.arquillian.extension</groupId>
         <artifactId>arquillian-drone-bom</artifactId>
-        <version>2.0.0.Alpha5</version>
+        <version>2.0.0.Beta1</version>
         <type>pom</type>
         <scope>import</scope>
       </dependency>
       <dependency>
         <groupId>org.jboss.arquillian.selenium</groupId>
         <artifactId>selenium-bom</artifactId>
-        <version>2.48.2</version>
+        <version>2.52.0</version>
         <type>pom</type>
         <scope>import</scope>
       </dependency>
@@ -260,12 +268,4 @@
       </build>
     </profile>
   </profiles>
-  <url>http://mvc-jsec.rhcloud.com</url>
-  <scm>
-    <url>https://github.com/karlnicholas/javaee-security-quickstart-archetype.git</url>
-  </scm>
-  <organization>
-    <name>Karl Nicholas</name>
-    <url>https://github.com/karlnicholas</url>
-  </organization>
 </project>

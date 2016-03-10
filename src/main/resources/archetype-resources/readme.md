@@ -75,13 +75,16 @@ or
 ###Install the security-domain
 
 The security configuration of Wildfly needs to be updated because this 
-archetype uses container managed security. The file jboss-security-domain.xm, 
-found in the root of your new project must be manually added to the Wildfly server's 
+archetype uses container managed security. There are two ways to do this.
+
+1) Probably the best way, run the `configure-security-domain.cli` JBoss/Wildfly command line 
+interface script. This will add a security domain named `javaee-security-quickstart`. If you want to 
+change it, be sure to change the `src/main/webapp/WEB-INF/jboss-web.xml` file as well.
+
+2) manually added the file jboss-security-domain.xml, found in the root of your new project, to the Wildfly server's 
 configuration file, which is typically standalone.xml. Find the `<security-domains>` 
 section of the configuration file and insert the contents of 
 the jboss-security-domain.xml into the section as a new `<security-domain>`. 
-Note: This could be done through wildfly console commands, 
-but I haven't worked out how to do that yet.   
 
 ### Test the project
 
@@ -131,9 +134,9 @@ Start the local wildfly server, e.g., $JBOSS_HOME/bin/standalone.sh
 
 ### Creating a new project in Eclipse
 
-* Import archetype URI by `Import ... > Projects from Git > Clone URI`
-* Install the archetype in local repository with `mvn install`
-* Go to `Preferences > Maven > Archetypes` and `Add Local Catalog`
-* Select the catalog from file (`archetype-catalog.xml`) 
-* Create new Maven project and select the archetype
-
+This archetype has been added to `Maven.org` and so it is available in 
+the list of maven archetypes for eclipse. 
+  * Be sure no projects are selected in Eclipse.
+  * Select File->New->Maven Project
+  * type `javaee-security-quickstart` into the filter. (Warning, there are a bunch of them in there under different groupIds and artifactIds and I don't know how they got up there, but they look like old versions I originally had on github. Perhaps github put them the magically, and hopefully they will go away. I didn't put them up there myself.)
+  * Follow the prompts.
