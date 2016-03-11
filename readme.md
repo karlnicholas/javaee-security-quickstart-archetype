@@ -150,5 +150,5 @@ This archetype has been added to `Maven.org` and so it is available in
 the list of maven archetypes for eclipse. 
   * Be sure no projects are selected in Eclipse.
   * Select File->New->Maven Project
-  * type `javaee-security-quickstart` into the filter. (Warning, there are a bunch of them in there under different groupIds and artifactIds and I don't know how they got up there, but they look like old versions I originally had on github. Perhaps github put them the magically, and hopefully they will go away. I didn't put them up there myself.)
+  * type `javaee-security-quickstart` into the filter to find this archetype.
   * Follow the prompts.
