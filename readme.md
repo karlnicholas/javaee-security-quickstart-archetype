@@ -13,19 +13,17 @@ and a default administrator is inserted into the database at build-time. Admin's
 can inspect and manage all users. This project is intended to be instructive 
 for developers interested in Java EE site security implementation.  
  
-This program uses the Servlet 3.0 HttpSevletRequest.login() and logout() calls
-in order to login users. Role base security is also implemented for EJB's, but 
-since there is no client, EJB security is redundant but provided for completeness. 
-The currently logged in user is stored in the session so that JSF pages can 
-access user information and roles.      
+In Java EE Servlet 3.0 HttpSevletRequest.login() and logout() implement security, which is handled by 
+Wildfly's servlet implementation. A User and Role Entity are defined for application use and query strings 
+are put into the Wildfly configuration files. A User must be logged in to access the UserDetail and ChangePassword 
+URLs. Form based security is configured in web.xml and a browser is redirected to login pages when an unauthorized 
+attempt to access restricted resources is attempted. Role base security is also implemented for EJB's, but since there is no client, it is redundant but provided for completeness. The currently logged in user is stored in the session so that JSF pages can access user information and roles.      
 
-None of the code uses anything vender specific, but the configuration is
+None of the code uses anything vender specific, but the container configuration files are 
 Wildfly specific. It is left up to the user to port to any other Java EE 
-compliant server if desired. Wildfly 9 version was used. 
+compliant server if desired. Wildfly 10 version was used. 
 
-This project has a Junit/Arquillian/Drone/Graphene testing setup that required 
-release candidate versions of Arquillian POMS. Hopefully this will be updated 
-when the final releases come out.  
+This project uses Junit/Arquillian/Drone/Graphene automated testing. 
 
 This project was inspired by [kolorobot's](https://github.com/kolorobot) 
 [Spring-Mvc-Quickstart-Archetype project.](https://github.com/kolorobot/spring-mvc-quickstart-archetype)
@@ -37,7 +35,7 @@ has happened, you will need to refresh the site for a couple of minutes while `O
 starts the project up again. 
 
 ### Generated project characteristics
-* Java EE MVC web application for Wildly 9 environment
+* Java EE MVC web application for Wildly 10 environment
 * JSF 2.2 and Bootstrap
 * JPA 2.1
 * H2DB (H2 Development Database) 
@@ -81,15 +79,14 @@ archetype uses container managed security. There are two ways to do this.
 interface script. This will add a security domain named `javaee-security-quickstart`. If you want to 
 change it, be sure to change the `src/main/webapp/WEB-INF/jboss-web.xml` file as well.
 
-2) manually added the file jboss-security-domain.xml, found in the root of your new project, to the Wildfly server's 
+2) Manually add the file jboss-security-domain.xml, found in the root of your new project, to the Wildfly server's 
 configuration file, which is typically standalone.xml. Find the `<security-domains>` 
 section of the configuration file and insert the contents of 
 the jboss-security-domain.xml into the section as a new `<security-domain>`. 
 
 ### Test the project
 
-First edit local wildfly server's standalone.xml configuration file to 
-add the javaee-security security-domain. See specific instructions above.
+Insure Wildfy's `security-domain` is configured. See specific instructions above.
 Start the local wildfly server, e.g., $JBOSS_HOME/bin/standalone.sh
 If you want to watch it run the tests, then install the firefox browser.
 
@@ -105,8 +102,7 @@ For testing using firefox, use:
 
 ### Install the project
 
-First edit local Wildfly server's standalone.xml configuration file to 
-add the javaee-security security-domain. See specific instructions above.
+Insure Wildfy's `security-domain` is configured. See specific instructions above.
 Start the local wildfly server, e.g., $JBOSS_HOME/bin/standalone.sh
 
 ```bash
@@ -115,8 +111,7 @@ Start the local wildfly server, e.g., $JBOSS_HOME/bin/standalone.sh
 
 ### Test on the browser
 
-First edit local wildfly server's standalone.xml configuration file to 
-add the javaee-security security-domain. See specific instructions above.
+Insure Wildfy's `security-domain` is configured. See specific instructions above.
 Start the local wildfly server, e.g., $JBOSS_HOME/bin/standalone.sh
 
     http://localhost:8080/jsec  (or your package name)
@@ -124,9 +119,6 @@ Start the local wildfly server, e.g., $JBOSS_HOME/bin/standalone.sh
 
 ### Uninstall the project
 
-First edit local wildfly server's standalone.xml configuration file to 
-add the javaee-security security-domain. See specific instructions above.
-Start the local wildfly server, e.g., $JBOSS_HOME/bin/standalone.sh
 
 ```bash
     mvn wildfly:undeploy
@@ -136,13 +128,11 @@ Start the local wildfly server, e.g., $JBOSS_HOME/bin/standalone.sh
 The admin user and password is loaded from `src/main/resources/META-INF/load-script.sql`, and the password
 is SHA-256/Base64 encoded, as specified in the jboss-security-domain.xml file. To change it, you can do either of 
 the following.
-  * Get a new password by editing the `src/main/java/service/UserSessionBean.java` file. At the end you will find a 
-  main method that encodes a string for you. Put your password of choice in the string and run it as a Java 
+  * Get a new password by editing the `src/main/java/service/UserSessionBean.java` file. At the end you will find a main method that encodes a string for you. Put your password of choice in the string and run it as a Java 
   application. Copy the output string to the load-script password field. Set the email field to a field of your
   choice. It's probably not a good idea check the changes showing your new password into source control.
-  * Or, use the default user id and password of `admin@test.com/admin` and change the password after you login. If you
-  want to change the email, create a new account and use the current admin account to promote the new account to admin. 
-  Then you will be able to use the new admin account to delete to old one if you want to.
+  * Or, use the default user id and password of `admin@test.com/admin` and change the password after you login.
+  If you want to change the email, create a new account and use the current admin account to promote the new account to admin. Then you will be able to use the new admin account to delete to old one if you want to.
 
 ### Creating a new project in Eclipse
 

@@ -1,0 +1,44 @@
+#set( $symbol_pound = '#' )
+#set( $symbol_dollar = '$' )
+#set( $symbol_escape = '\' )
+<ui:composition template="/views/template/template.xhtml"
+  xmlns="http://www.w3.org/1999/xhtml"
+  xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+  xmlns:h="http://xmlns.jcp.org/jsf/html"
+  xmlns:p="http://xmlns.jcp.org/jsf/passthrough">
+<ui:define name="title"><h:outputText value="Java EE MVC - Register" /></ui:define>
+<ui:define name="content">
+<h:form id="registerForm" styleClass="form-horizontal">
+  <div class="form-group">
+    <div class="col-sm-offset-2 col-sm-4"><h:outputText value="Register" styleClass="control-label"/></div>
+  </div>
+  <div class="form-group ${symbol_pound}{accountsController.isValid('registerForm:email')?'':'has-error'}">
+    <h:outputLabel for="email" value="Email:" styleClass="col-sm-2 control-label"/>
+    <div class="col-sm-4"><h:inputText id="email" value="${symbol_pound}{accountsController.newUser.email}" styleClass="form-control" p:aria-describedby="registerForm:helpforemail"/>
+      <h:message id="helpforemail" styleClass="help-block" for="email"/>
+    </div>
+  </div>
+  <div class="form-group ${symbol_pound}{accountsController.isValid('registerForm:password')?'':'has-error'}">
+    <h:outputLabel for="password" value="Password:" styleClass="col-sm-2 control-label"/>
+    <div class="col-sm-4"><h:inputSecret id="password" value="${symbol_pound}{accountsController.newUser.password}" styleClass="form-control" p:aria-describedby="registerForm:helpforpassword"/>
+      <h:message id="helpforpassword" styleClass="help-block" for="password"/>
+    </div>
+  </div>
+  <div class="form-group">
+    <h:outputLabel for="firstName" value="First Name:" styleClass="col-sm-2 control-label"/>
+    <div class="col-sm-4"><h:inputText id="firstName" value="${symbol_pound}{accountsController.newUser.firstName}" styleClass="form-control"/></div>
+  </div>
+  <div class="form-group">
+    <h:outputLabel for="lastName" value="Last Name:" styleClass="col-sm-2 control-label"/>
+    <div class="col-sm-4"><h:inputText id="lastName" value="${symbol_pound}{accountsController.newUser.lastName}" styleClass="form-control"/></div>
+  </div>
+  <div class="form-group">
+    <div class="col-sm-offset-2 col-sm-2"><h:commandButton id="register" action="${symbol_pound}{accountsController.register()}" value="Register" class="btn btn-default"/></div>
+    <div class="col-sm-2"><h:button outcome="/views/accounts/accounts.xhtml" value="Cancel" class="btn"/></div>
+  </div>
+  <div class="form-group">
+    <h:messages globalOnly="true" showDetail="true" styleClass="col-sm-offset-2 col-sm-4" />
+  </div>
+</h:form>
+</ui:define>
+</ui:composition>

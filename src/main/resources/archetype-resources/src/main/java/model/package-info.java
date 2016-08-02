@@ -2,7 +2,7 @@
 #set( $symbol_dollar = '$' )
 #set( $symbol_escape = '\' )
 /**
- * Database entities.
+ * Database entities. Defined User and Role.
  * @author Karl Nicholas
  *
  */

@@ -11,17 +11,17 @@
 <ui:define name="content">
 <h:form id="indexForm">
     <div class="row">
-      <div class="col-sm-offset-2 col-sm-4"><p><h:outputText id="welcomeMessage" value="Welcome " /><h:outputText id="welcomeUserMessage" rendered="${symbol_pound}{principal.loggedIn}" value="${symbol_pound}{principal.user.firstName}." /></p></div>
+      <div class="col-sm-offset-2 col-sm-4"><p><h:outputText id="welcomeMessage" value="Welcome " /><h:outputText id="welcomeUserMessage" rendered="${symbol_pound}{accountsController.loggedIn}" value="${symbol_pound}{accountsController.currentUser.firstName}." /></p></div>
     </div>
     <div class="row">
       <div class="col-sm-offset-2 col-sm-4">
       <h:commandButton id="showUserCount" value="Show User Count" styleClass="btn btn-default" >
-        <f:ajax listener="${symbol_pound}{index.updateUserCount()}" render="numberOfUsers" />
+        <f:ajax listener="${symbol_pound}{indexController.updateUserCount()}" render="numberOfUsers" />
       </h:commandButton>
       </div>
     </div>
     <div class="row">
-      <div class="col-sm-offset-2 col-sm-4"><h:outputText id="numberOfUsers" value="${symbol_pound}{index.userCountMessage}" /></div>
+      <div class="col-sm-offset-2 col-sm-4"><h:outputText id="numberOfUsers" value="${symbol_pound}{indexController.userCountMessage}" /></div>
     </div>
 </h:form>
 </ui:define>

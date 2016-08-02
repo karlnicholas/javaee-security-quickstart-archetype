@@ -1,0 +1,18 @@
+#set( $symbol_pound = '#' )
+#set( $symbol_dollar = '$' )
+#set( $symbol_escape = '\' )
+<ui:composition template="/views/template/template.xhtml"
+    xmlns="http://www.w3.org/1999/xhtml"
+    xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+    xmlns:h="http://xmlns.jcp.org/jsf/html"
+    xmlns:p="http://primefaces.org/ui">
+<ui:define name="title"><h:outputText value="Java EE MVC - User Account"/></ui:define>
+<ui:define name="content">
+<ui:fragment rendered="${symbol_pound}{!accountsController.loggedIn}">
+  <ui:include src="/views/accounts/loginsignup.xhtml" />
+</ui:fragment>
+<ui:fragment rendered="${symbol_pound}{accountsController.loggedIn}">
+  <ui:include src="/views/accounts/user/userdetail.xhtml" />
+</ui:fragment>
+</ui:define>
+</ui:composition>

@@ -24,10 +24,10 @@
   </organization>
   <properties>
     <!-- Define the version of the arquillian BOMs we want to import to specify tested stacks. -->
-    <version.org.wildfly.wildfly-arquillian>8.2.1.Final</version.org.wildfly.wildfly-arquillian>
+    <version.org.wildfly.arquillian>2.0.0.Final</version.org.wildfly.arquillian>
     <!-- maven-compiler-plugin -->
-    <maven.compiler.target>1.7</maven.compiler.target>
-    <maven.compiler.source>1.7</maven.compiler.source>
+    <maven.compiler.target>1.8</maven.compiler.target>
+    <maven.compiler.source>1.8</maven.compiler.source>
     <!-- PhantomJS will be our default browser if no profile is specified -->
     <browser>phantomjs</browser>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
@@ -49,21 +49,14 @@
       <dependency>
         <groupId>org.jboss.arquillian.extension</groupId>
         <artifactId>arquillian-drone-bom</artifactId>
-        <version>2.0.0.Beta1</version>
+        <version>2.0.0.Final</version>
         <type>pom</type>
         <scope>import</scope>
       </dependency>
       <dependency>
-        <groupId>org.jboss.arquillian.selenium</groupId>
-        <artifactId>selenium-bom</artifactId>
-        <version>2.52.0</version>
-        <type>pom</type>
-        <scope>import</scope>
-      </dependency>
-      <dependency>
-        <groupId>org.jboss.shrinkwrap.resolver</groupId>
-        <artifactId>shrinkwrap-resolver-bom</artifactId>
-        <version>2.2.0</version>
+        <groupId>org.jboss.shrinkwrap</groupId>
+        <artifactId>shrinkwrap-bom</artifactId>
+        <version>1.2.6</version>
         <scope>import</scope>
         <type>pom</type>
       </dependency>
@@ -82,18 +75,18 @@
     <dependency>
       <groupId>org.webjars</groupId>
       <artifactId>bootstrap</artifactId>
-      <version>3.3.5</version>
+      <version>3.3.7</version>
     </dependency>
     <dependency>
       <groupId>org.webjars</groupId>
       <artifactId>jquery</artifactId>
-      <version>1.11.3</version>
+      <version>1.12.4</version>
     </dependency>
     <!-- Needed for running tests (you may also use TestNG) -->
     <dependency>
       <groupId>junit</groupId>
       <artifactId>junit</artifactId>
-      <version>4.11</version>
+      <version>4.12</version>
       <scope>test</scope>
     </dependency>
     <!-- Arquillian allows you to test enterprise code such as EJBs and Transactional(JTA) JPA from JUnit/TestNG -->
@@ -107,20 +100,23 @@
       <artifactId>arquillian-protocol-servlet</artifactId>
       <scope>test</scope>
     </dependency>
-<!--     
     <dependency>
-      <groupId>org.jboss.arquillian.graphene</groupId>
-      <artifactId>graphene-webdriver</artifactId>
-      <version>2.1.0.Alpha3</version>
+      <groupId>org.jboss.arquillian.extension</groupId>
+      <artifactId>arquillian-drone-webdriver-depchain</artifactId>
       <type>pom</type>
       <scope>test</scope>
     </dependency>
- -->    
     <dependency>
       <groupId>org.jboss.arquillian.graphene</groupId>
       <artifactId>graphene-webdriver</artifactId>
-      <version>2.1.0.Alpha3</version>
+      <version>2.1.0.Final</version>
       <type>pom</type>
+      <scope>test</scope>
+    </dependency>
+    <dependency>
+        <groupId>org.seleniumhq.selenium</groupId>
+        <artifactId>selenium-firefox-driver</artifactId>
+        <version>2.53.1</version><!--$NO-MVN-MAN-VER$-->
       <scope>test</scope>
     </dependency>
     <dependency>
@@ -142,11 +138,6 @@
       <groupId>xml-apis</groupId>
       <artifactId>xml-apis</artifactId>
       <version>1.4.01</version>
-    </dependency>
-    <dependency>
-      <groupId>org.primefaces</groupId>
-      <artifactId>primefaces</artifactId>
-      <version>5.3</version>
     </dependency>
   </dependencies>
   <build>
@@ -207,7 +198,7 @@
         <plugins>
           <plugin>
             <artifactId>maven-surefire-plugin</artifactId>
-            <version>2.16</version>
+            <version>2.17</version>
             <configuration>
               <skip>true</skip>
             </configuration>
@@ -222,9 +213,9 @@
       <id>arq-wildfly-managed</id>
       <dependencies>
         <dependency>
-          <groupId>org.wildfly</groupId>
+          <groupId>org.wildfly.arquillian</groupId>
           <artifactId>wildfly-arquillian-container-managed</artifactId>
-          <version>${version.org.wildfly.wildfly-arquillian}</version>
+          <version>${version.org.wildfly.arquillian}</version>
           <scope>test</scope>
         </dependency>
       </dependencies>
@@ -234,12 +225,12 @@
       <!-- Run with: mvn clean test -Parq-wildfly-remote -->
       <id>arq-wildfly-remote</id>
       <dependencies>
-        <dependency>
-          <groupId>org.wildfly</groupId>
+      <!-- https://mvnrepository.com/artifact/org.wildfly.arquillian/wildfly-arquillian-container-remote -->
+      <dependency>
+          <groupId>org.wildfly.arquillian</groupId>
           <artifactId>wildfly-arquillian-container-remote</artifactId>
-          <version>${version.org.wildfly.wildfly-arquillian}</version>
-          <scope>test</scope>
-        </dependency>
+          <version>${version.org.wildfly.arquillian}</version>
+      </dependency>
       </dependencies>
     </profile>
     <profile>

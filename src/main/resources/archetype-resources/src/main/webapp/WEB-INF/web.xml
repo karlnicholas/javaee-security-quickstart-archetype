@@ -31,7 +31,7 @@
   <security-constraint>
     <web-resource-collection>
       <web-resource-name>Admin Views</web-resource-name>
-      <url-pattern>/views/admin/*</url-pattern>
+      <url-pattern>/views/accounts/admin/*</url-pattern>
     </web-resource-collection>
     <auth-constraint>
       <role-name>ADMIN</role-name>
@@ -40,7 +40,7 @@
   <security-constraint>
     <web-resource-collection>
       <web-resource-name>User Views</web-resource-name>
-      <url-pattern>/views/user/*</url-pattern>
+      <url-pattern>/views/accounts/user/*</url-pattern>
     </web-resource-collection>
     <auth-constraint>
       <role-name>ADMIN</role-name>
@@ -50,8 +50,8 @@
   <login-config>
     <auth-method>FORM</auth-method>
     <form-login-config>
-      <form-login-page>/views/login.xhtml</form-login-page>
-      <form-error-page>/views/login.xhtml?Retry=True</form-error-page>
+      <form-login-page>/views/accounts/login.xhtml</form-login-page>
+      <form-error-page>/views/accounts/login.xhtml?Retry=True</form-error-page>
     </form-login-config>
   </login-config>
   <security-role>

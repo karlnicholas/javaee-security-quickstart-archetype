@@ -1,0 +1,39 @@
+#set( $symbol_pound = '#' )
+#set( $symbol_dollar = '$' )
+#set( $symbol_escape = '\' )
+<f:view xmlns="http://www.w3.org/1999/xhtml"
+        xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+        xmlns:f="http://xmlns.jcp.org/jsf/core"
+        xmlns:h="http://xmlns.jcp.org/jsf/html"
+        xmlns:p="http://xmlns.jcp.org/jsf/passthrough">
+<h:form id="userdetailForm" styleClass="form-horizontal">
+  <div class="form-group">
+    <div class="col-sm-offset-2 col-sm-4"><h:outputText value="User Detail" styleClass="control-label"/></div>
+  </div>
+  <div class="form-group">
+    <h:outputLabel for="email" value="Email:" styleClass="col-sm-2 control-label"/>
+    <div class="col-sm-4"><h:inputText id="email" value="${symbol_pound}{accountsController.currentUser.email}" disabled="true" styleClass="form-control"/></div>
+  </div>
+  <div class="form-group">
+    <h:outputLabel for="firstName" value="First Name:" styleClass="col-sm-2 control-label"/>
+    <div class="col-sm-4"><h:inputText id="firstName" value="${symbol_pound}{accountsController.currentUser.firstName}" styleClass="form-control"/></div>
+  </div>
+  <div class="form-group">
+    <h:outputLabel for="lastName" value="Last Name:" styleClass="col-sm-2 control-label"/>
+    <div class="col-sm-4"><h:inputText id="lastName" value="${symbol_pound}{accountsController.currentUser.lastName}" styleClass="form-control"/></div>
+  </div>
+  <div class="form-group">
+    <div class="col-sm-offset-2 col-sm-2"><h:commandButton id="logout" action="${symbol_pound}{accountsController.logout()}" value="Logout" class="btn btn-default"/></div>
+    <ui:fragment rendered="${symbol_pound}{accountsController.admin}">
+     <div class="col-sm-2"><h:button id="admin" outcome="/views/accounts/admin/admin.xhtml" value="Administer Users" class="btn btn-warning"/></div>
+    </ui:fragment>
+  </div>
+  <div class="form-group">
+    <div class="col-sm-offset-2 col-sm-2"><h:commandButton id="update" action="${symbol_pound}{accountsController.update()}" value="Update" class="btn"/></div>
+    <div class="col-sm-2"><h:button id="changepassword" outcome="/views/accounts/user/changepassword.xhtml" value="Change Password" class="btn"/></div>
+  </div>
+  <div class="form-group">
+    <h:messages p:name="userdetailForm:messages" globalOnly="true" showDetail="true" styleClass="col-sm-offset-2 col-sm-4" />
+  </div>
+</h:form>
+</f:view>

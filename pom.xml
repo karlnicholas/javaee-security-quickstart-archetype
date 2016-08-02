@@ -5,7 +5,7 @@
 
   <groupId>com.github.karlnicholas</groupId>
   <artifactId>javaee-security-quickstart-archetype</artifactId>
-  <version>1.0.1</version>
+  <version>1.1</version>
   <packaging>maven-archetype</packaging>
 
   <name>javaee-security-quickstart-archetype</name>
@@ -30,8 +30,8 @@
         <artifactId>maven-compiler-plugin</artifactId>
         <version>3.5.1</version>
         <configuration>
-          <source>1.7</source>
-          <target>1.7</target>
+          <source>1.8</source>
+          <target>1.8</target>
         </configuration>
       </plugin>
       <plugin>
