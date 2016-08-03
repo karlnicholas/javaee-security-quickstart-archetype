@@ -79,10 +79,10 @@ archetype uses container managed security. There are two ways to do this.
 interface script. This will add a security domain named `javaee-security-quickstart`. If you want to 
 change it, be sure to change the `src/main/webapp/WEB-INF/jboss-web.xml` file as well.
 
-2) Manually add the file jboss-security-domain.xml, found in the root of your new project, to the Wildfly server's 
-configuration file, which is typically standalone.xml. Find the `<security-domains>` 
-section of the configuration file and insert the contents of 
-the jboss-security-domain.xml into the section as a new `<security-domain>`. 
+2) Manually add the file `javaee-security-domain.xml`, found in the root of your new project, to 
+the Wildfly server's configuration file, which is typically standalone.xml. Find the `<security-domains>` 
+section of the configuration file and insert the contents of the jboss-security-domain.xml into the 
+section as a new `<security-domain>`. 
 
 ### Test the project
 
