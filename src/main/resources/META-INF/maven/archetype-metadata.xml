@@ -65,65 +65,27 @@
       </includes>
     </fileSet>
     <fileSet filtered="true" encoding="UTF-8">
+      <directory>src/test/class-use</directory>
+      <includes>
+        <include>**/*.html</include>
+      </includes>
+    </fileSet>
+    <fileSet filtered="true" encoding="UTF-8">
+      <directory>src/test</directory>
+      <includes>
+        <include>**/*.html</include>
+      </includes>
+    </fileSet>
+    <fileSet filtered="true" encoding="UTF-8">
       <directory>src/test/resources</directory>
       <includes>
         <include>**/*.xml</include>
       </includes>
     </fileSet>
     <fileSet filtered="true" encoding="UTF-8">
-      <directory>doc/service</directory>
-      <includes>
-        <include>**/*.html</include>
-      </includes>
-    </fileSet>
-    <fileSet filtered="true" encoding="UTF-8">
-      <directory>doc/controller</directory>
-      <includes>
-        <include>**/*.html</include>
-      </includes>
-    </fileSet>
-    <fileSet filtered="true" encoding="UTF-8">
-      <directory>doc</directory>
-      <includes>
-        <include>**/*.html</include>
-      </includes>
-    </fileSet>
-    <fileSet filtered="true" encoding="UTF-8">
-      <directory>doc/model</directory>
-      <includes>
-        <include>**/*.html</include>
-      </includes>
-    </fileSet>
-    <fileSet filtered="true" encoding="UTF-8">
-      <directory>doc/test</directory>
-      <includes>
-        <include>**/*.html</include>
-      </includes>
-    </fileSet>
-    <fileSet filtered="true" encoding="UTF-8">
-      <directory>doc/index-files</directory>
-      <includes>
-        <include>**/*.html</include>
-      </includes>
-    </fileSet>
-    <fileSet filtered="true" encoding="UTF-8">
       <directory>.settings</directory>
       <includes>
         <include>**/*.xml</include>
-      </includes>
-    </fileSet>
-    <fileSet filtered="true" encoding="UTF-8">
-      <directory>doc/util</directory>
-      <includes>
-        <include>**/*.html</include>
-      </includes>
-    </fileSet>
-    <fileSet encoding="UTF-8">
-      <directory>doc</directory>
-      <includes>
-        <include>**/*.</include>
-        <include>**/*.css</include>
-        <include>**/*.js</include>
       </includes>
     </fileSet>
     <fileSet encoding="UTF-8">
