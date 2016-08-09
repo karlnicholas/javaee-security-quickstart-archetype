@@ -13,11 +13,11 @@ and a default administrator is inserted into the database at build-time. Admin's
 can inspect and manage all users. This project is intended to be instructive 
 for developers interested in Java EE site security implementation.  
  
-In Java EE Servlet 3.0 HttpSevletRequest.login() and logout() implement security, which is handled by 
-Wildfly's servlet implementation. A User and Role Entity are defined for application use and query strings 
-are put into the Wildfly configuration files. A User must be logged in to access the UserDetail and ChangePassword 
-URLs. Form based security is configured in web.xml and a browser is redirected to login pages when an unauthorized 
-attempt to access restricted resources is attempted. Role base security is also implemented for EJB's, but since there is no client, it is redundant but provided for completeness. The currently logged in user is stored in the session so that JSF pages can access user information and roles.      
+Java EE Servlet 3.0 HttpSevletRequest.login() and logout() define security, which is handled by 
+the application server, in this case <a href="http://wildfly.org/">Wildfly 10</a>. 
+User and Role entities are created and query strings are put into the Wildfly configuration files. 
+A logged in user may access the UserDetail and ChangePassword URLs. 
+Form based security is configured in web.xml and the browser is redirected to login forms when access restricted resources is attempted. Role base security is also implemented for EJB's, but since there is no EJB client it is redundant and provided for completeness. The currently logged in user is stored in the http session so JSF pages can access user information and roles.      
 
 None of the code uses anything vender specific, but the container configuration files are 
 Wildfly specific. It is left up to the user to port to any other Java EE 
@@ -26,7 +26,7 @@ compliant server if desired. Wildfly 10 version was used.
 This project uses Junit/Arquillian/Drone/Graphene automated testing. 
 
 This project was inspired by [kolorobot's](https://github.com/kolorobot) 
-[Spring-Mvc-Quickstart-Archetype project.](https://github.com/kolorobot/spring-mvc-quickstart-archetype)
+[Spring-Mvc-Quickstart-Archetype project.](https://github.com/kolorobot/spring-mvc-quickstart-archetype). 
 This readme.md started with the readme.md from the same.
 
 [You can see the project in action on OpenShift.](http://mvc-jsec.rhcloud.com/)
@@ -34,7 +34,7 @@ Note that `OpenShift` will shutdown the server after 48 hours of inactivity. If 
 has happened, you will need to refresh the site for a couple of minutes while `OpenShift` 
 starts the project up again. 
 
-### Generated project characteristics
+### Project characteristics
 * Java EE MVC web application for Wildly 10 environment
 * JSF 2.2 and Bootstrap
 * JPA 2.1
@@ -88,7 +88,7 @@ section as a new `<security-domain>`.
 
 Insure Wildfy's `security-domain` is configured. See specific instructions above.
 Start the local wildfly server, e.g., $JBOSS_HOME/bin/standalone.sh
-If you want to watch it run the tests, then install the firefox browser.
+If you want to watch it run the tests install Firefox.
 
 For headless testing, use:
 ```bash
