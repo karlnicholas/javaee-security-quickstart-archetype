@@ -17,7 +17,7 @@ Java EE Servlet 3.0 HttpSevletRequest.login() and logout() define security, whic
 the application server, in this case <a href="http://wildfly.org/">Wildfly 10</a>. 
 User and Role entities are created and query strings are put into the Wildfly configuration files. 
 A logged in user may access the UserDetail and ChangePassword URLs. 
-Form based security is configured in web.xml and the browser is redirected to login forms when access restricted resources is attempted. Role base security is also implemented for EJB's, but since there is no EJB client it is redundant and provided for completeness. The currently logged in user is stored in the http session so JSF pages can access user information and roles.      
+Form based security is configured in web.xml and the browser is redirected to login forms when access to restricted resources is attempted. Role base security is also implemented for EJB's, but since there is no EJB client it is redundant and provided for completeness. The currently logged in user is stored in the http session so JSF pages can access user information and roles.      
 
 None of the code uses anything vender specific, but the container configuration files are 
 Wildfly specific. It is left up to the user to port to any other Java EE 
