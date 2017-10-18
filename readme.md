@@ -29,9 +29,8 @@ This project was inspired by [kolorobot's](https://github.com/kolorobot)
 [Spring-Mvc-Quickstart-Archetype project.](https://github.com/kolorobot/spring-mvc-quickstart-archetype). 
 This readme.md started with the readme.md from the same.
 
-[You can see the project in action on OpenShift.](http://mvc-jsec.rhcloud.com/)
-Note that `OpenShift` will shutdown the server after 48 hours of inactivity. If this 
-has happened, you will need to refresh the site for a couple of minutes while `OpenShift` 
+[You can see the project in action on OpenShift.](http://jsec-jsec.b9ad.pro-us-east-1.openshiftapps.com/views/about.xhtml)
+If this has happened, you will need to refresh the site for a couple of minutes while `OpenShift` 
 starts the project up again. 
 
 ### Project characteristics
