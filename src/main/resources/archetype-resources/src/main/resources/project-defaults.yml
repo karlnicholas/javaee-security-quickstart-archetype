@@ -1,0 +1,27 @@
+swarm:
+  datasources:
+    data-sources:
+      ExampleDS:
+        driver-name: h2
+        connection-url: jdbc:h2:mem:test;DB_CLOSE_DELAY=-1;DB_CLOSE_ON_EXIT=FALSE
+        user-name: sa
+        password: sa
+        use-java-context: true 
+  security:
+    security-domains:
+      java-security-quickstart:
+        classic-authentication:
+          login-modules:
+            defaultRoleDatabaseModule:
+              code: org.jboss.security.auth.spi.DatabaseServerLoginModule
+              flag: optional
+              module-options:
+                dsJndiName: java:jboss/datasources/ExampleDS
+                password-stacking: useFirstPass
+                principalsQuery: select password from user where email = ?
+                rolesQuery: select r.role, 'Roles' from user_role ur inner join role r on r.id = ur.roles_id inner join user u on u.id = ur.user_id where u.email = ?
+                hashAlgorithm: SHA-256
+                hashEncoding: BASE64
+                hashCharset: UTF-8
+                unauthenticatedIdentity: guest
+  

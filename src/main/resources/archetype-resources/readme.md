@@ -13,34 +13,36 @@ and a default administrator is inserted into the database at build-time. Admin's
 can inspect and manage all users. This project is intended to be instructive 
 for developers interested in Java EE site security implementation.  
  
-In Java EE Servlet 3.0 HttpSevletRequest.login() and logout() implement security, which is handled by 
-Wildfly's servlet implementation. A User and Role Entity are defined for application use and query strings 
-are put into the Wildfly configuration files. A User must be logged in to access the UserDetail and ChangePassword 
-URLs. Form based security is configured in web.xml and a browser is redirected to login pages when an unauthorized 
-attempt to access restricted resources is attempted. Role base security is also implemented for EJB's, but since there is no client, it is redundant but provided for completeness. The currently logged in user is stored in the session so that JSF pages can access user information and roles.      
+Java EE Servlet 3.0 HttpSevletRequest.login() and logout() define security, which is handled by 
+the application server, in this case [Wildfly 10](http://wildfly.org/). 
+User and Role entities are created and query strings are put into the Wildfly configuration files. 
+A logged in user may access the UserDetail and ChangePassword URLs. 
+Form based security is configured in web.xml and the browser is redirected to login forms when access to restricted resources is attempted. Role base security is also implemented for EJB's, but since there is no EJB client it is redundant and provided for completeness. The currently logged in user is stored in the http session so JSF pages can access user information and roles.      
 
+Support for <a href="http://wildfly-swarm.io/">Wildfly Swarm(Thorntail)</a> has been added so that a single jar file can be created and run or deployed. See below for further information.
+ 
 None of the code uses anything vender specific, but the container configuration files are 
 Wildfly specific. It is left up to the user to port to any other Java EE 
-compliant server if desired. Wildfly 10 version was used. 
+compliant server if desired. Wildfly 11 version was used. 
 
 This project uses Junit/Arquillian/Drone/Graphene automated testing. 
 
 This project was inspired by [kolorobot's](https://github.com/kolorobot) 
-[Spring-Mvc-Quickstart-Archetype project.](https://github.com/kolorobot/spring-mvc-quickstart-archetype)
+[Spring-Mvc-Quickstart-Archetype project.](https://github.com/kolorobot/spring-mvc-quickstart-archetype). 
 This readme.md started with the readme.md from the same.
 
-[You can see the project in action on OpenShift.](http://jsec-jsec.b9ad.pro-us-east-1.openshiftapps.com/)
-Note that `OpenShift` will shutdown the server after 48 hours of inactivity. If this 
-has happened, you will need to refresh the site for a couple of minutes while `OpenShift` 
+[You can see the project in action on OpenShift.](http://jsec-jsec.7e14.starter-us-west-2.openshiftapps.com/)
+If this has happened, you will need to refresh the site for a couple of minutes while `OpenShift` 
 starts the project up again. 
 
-### Generated project characteristics
-* Java EE MVC web application for Wildly 10 environment
+### Project characteristics
+* Java EE MVC web application for Wildly 11 environment
 * JSF 2.2 and Bootstrap
 * JPA 2.1
 * H2DB (H2 Development Database) 
 * JUnit/Arquillian/Drone/Graphene for testing
 * Java EE MVC Supported by JBoss/Wildfly Database Module 
+* Redhat Swarm (Thorntail) support
 
 ### Installation
 
@@ -88,7 +90,7 @@ section as a new `<security-domain>`.
 
 Insure Wildfy's `security-domain` is configured. See specific instructions above.
 Start the local wildfly server, e.g., $JBOSS_HOME/bin/standalone.sh
-If you want to watch it run the tests, then install the firefox browser.
+If you want to watch it run the tests install Firefox.
 
 For headless testing, use:
 ```bash
@@ -142,3 +144,23 @@ the list of maven archetypes for eclipse.
   * Select File->New->Maven Project
   * type `javaee-security-quickstart` into the filter to find this archetype.
   * Follow the prompts.
+
+  
+### Creating a single jar with Wildfly Swarm
+
+To create a single jar do
+
+```bash
+    mvn package -Pswarm
+```
+
+The single jar will be created in the target directory named `javaee-security-quickstart-swarm.jar` (or whatever you named your project). Run it with the command
+
+```bash
+    java -jar target/javaee-security-quickstart-swarm.jar
+```
+
+The jar can be deployed in a container that supports running java, on [Openshift](http://www/openshift.com) for example. The demonstration deployment is running on openshift with 384 Mb of memory. Notes for Openshift include:    
+
+* Set environment GC_MAX_METASPACE_SIZE=192 environment variable. See [Red Hat Java S2I for OpenShift](https://access.redhat.com/documentation/en-us/red_hat_jboss_middleware_for_openshift/3/html-single/red_hat_java_s2i_for_openshift) for full details.
+* Highly recommended to use [OpenJDK 8 Image for Java Applications](https://access.redhat.com/containers/?tab=overview#/registry.access.redhat.com/redhat-openjdk-18/openjdk18-openshift) for JDK runtime as it is container aware. 

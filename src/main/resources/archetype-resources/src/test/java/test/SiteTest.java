@@ -52,14 +52,14 @@ public class SiteTest {
     public static Archive<?> createTestArchive() {
 
         final PomEquippedResolveStage pom = Maven.resolver().loadPomFromFile("pom.xml");
-        
+
         return ShrinkWrap.create(WebArchive.class, "jsec.war")
             .addAsLibraries(
                 pom.resolve("org.webjars:bootstrap:3.3.7").withoutTransitivity().as(JavaArchive.class)
             )
             .addAsLibraries(
-                pom.resolve("org.webjars:jquery:${version}2.4").withoutTransitivity().as(JavaArchive.class)
-            )
+        		pom.resolve("org.webjars:jquery:1.11.1").withoutTransitivity().as(JavaArchive.class)
+    		)
             .addClasses(
                     User.class, 
                     Role.class, 

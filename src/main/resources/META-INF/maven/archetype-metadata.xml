@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<archetype-descriptor xsi:schemaLocation="http://maven.apache.org/plugins/maven-archetype-plugin/archetype-descriptor/1.0.0 http://maven.apache.org/xsd/archetype-descriptor-1.0.0.xsd" name="javaee-security-quickstart"
+<archetype-descriptor xsi:schemaLocation="http://maven.apache.org/plugins/maven-archetype-plugin/archetype-descriptor/1.0.0 http://maven.apache.org/xsd/archetype-descriptor-1.0.0.xsd" name="java-security-quickstart"
     xmlns="http://maven.apache.org/plugins/maven-archetype-plugin/archetype-descriptor/1.0.0"
     xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
   <fileSets>
@@ -27,7 +27,6 @@
       <directory>src/main/webapp</directory>
       <includes>
         <include>**/*.xml</include>
-        <include>**/*.html</include>
         <include>**/*.xhtml</include>
       </includes>
     </fileSet>
@@ -40,7 +39,6 @@
     <fileSet encoding="UTF-8">
       <directory>src/main/javadoc</directory>
       <includes>
-        <include>**/*.</include>
         <include>**/*.css</include>
         <include>**/*.js</include>
       </includes>
@@ -48,12 +46,14 @@
     <fileSet encoding="UTF-8">
       <directory>src/main/resources</directory>
       <includes>
+        <include>**/*.yml</include>
         <include>**/*.sql</include>
       </includes>
     </fileSet>
     <fileSet encoding="UTF-8">
       <directory>src/main/webapp</directory>
       <includes>
+        <include>**/*.gitignore</include>
         <include>**/*.png</include>
         <include>**/*.jsfdia</include>
       </includes>
@@ -93,6 +93,7 @@
       <includes>
         <include>**/*.container</include>
         <include>**/*.component</include>
+        <include>**/*.name</include>
         <include>**/*.jsdtscope</include>
         <include>**/*.prefs</include>
       </includes>
@@ -109,7 +110,6 @@
       <directory></directory>
       <includes>
         <include>.gitignore</include>
-        <include>.tern-project</include>
         <include>configure-security-domain.cli</include>
         <include>readme.md</include>
         <include>remove-security-domain.cli</include>
